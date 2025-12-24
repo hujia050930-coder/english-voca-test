@@ -73,7 +73,7 @@ DIFFICULTY_LEVELS = {
 BASE_VOCABULARY = 500      # 基础词汇量
 MAX_QUESTIONS = 25         # 最大题目数
 INITIAL_DIFFICULTY = 3     # 起始难度
-QUESTION_BANK_FILE = "vocatest/词汇量测试题库.xlsx"  # 题库文件名
+QUESTION_BANK_FILE = "vocatest/data.xlsx"  # 题库文件名
 RESULTS_FILE = "vocabulary_test_results.csv"  # 结果保存文件
 
 # ==================== 第四部分：核心函数 - 数据加载 ====================
