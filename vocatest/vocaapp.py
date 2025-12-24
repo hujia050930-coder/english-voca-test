@@ -102,16 +102,7 @@ def load_question_bank():
         return []
     
     st.write(f"✅ 找到文件: {file_path}")
-    try:
-        # 1. 检查文件大小
-        file_size = os.path.getsize(file_path)
-        st.write(f"📊 文件大小: {file_size:,} 字节")
-        
-        # 2. 尝试读取Excel基本信息
-        import pandas as pd
-        excel_data = pd.ExcelFile(file_path)
-        sheet_names = excel_data.sheet_names
-        st.write(f"📑 Excel工作表: {sheet_names}")
+
         
     if not os.path.exists(QUESTION_BANK_FILE):
         return []
