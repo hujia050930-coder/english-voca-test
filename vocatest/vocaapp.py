@@ -83,6 +83,10 @@ def load_question_bank():
     加载词汇题库
     返回：题目列表，如果失败返回空列表
     """
+    import os
+    st.write("🔍 正在检查文件...")
+    st.write(f"当前目录: {os.getcwd()}")
+    st.write(f"文件列表: {os.listdir('.')}")
     # 检查文件是否存在
     if not os.path.exists(QUESTION_BANK_FILE):
         return []
