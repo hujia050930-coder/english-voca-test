@@ -73,7 +73,7 @@ DIFFICULTY_LEVELS = {
 BASE_VOCABULARY = 500      # 基础词汇量
 MAX_QUESTIONS = 25         # 最大题目数
 INITIAL_DIFFICULTY = 3     # 起始难度
-QUESTION_BANK_FILE = "data.xlsx"  # 题库文件名
+QUESTION_BANK_FILE = "vocatest/data.xlsx"  # 题库文件名
 RESULTS_FILE = "vocabulary_test_results.csv"  # 结果保存文件
 
 # ==================== 第四部分：核心函数 - 数据加载 ====================
@@ -88,6 +88,20 @@ def load_question_bank():
     st.write(f"当前目录: {os.getcwd()}")
     st.write(f"文件列表: {os.listdir('.')}")
     # 检查文件是否存在
+    file_path = "vocatest/data.xlsx" if os.path.exists("vocatest") else "data.xlsx"
+    
+    if not os.path.exists(file_path):
+        st.write(f"❌ 找不到文件: {file_path}")
+        # 列出所有可能的文件
+        all_files = []
+        for root, dirs, files in os.walk('.'):
+            for file in files:
+                if file.endswith('.xlsx'):
+                    all_files.append(os.path.join(root, file))
+        st.write(f"找到的所有Excel文件: {all_files}")
+        return []
+    
+    st.write(f"✅ 找到文件: {file_path}")
     if not os.path.exists(QUESTION_BANK_FILE):
         return []
     
